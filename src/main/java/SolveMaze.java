@@ -40,6 +40,15 @@ public class SolveMaze {
         if (maze.isFinished()) {
             System.out.println("You solved the maze!");
         } else {
+            while(!maze.isFinished()) {
+                maze.turnLeft();
+
+                while (!maze.canMove()) {
+                    maze.turnRight();
+                }
+                maze.move();
+            }
+
             System.out.println("Try again!");
         }
     }
